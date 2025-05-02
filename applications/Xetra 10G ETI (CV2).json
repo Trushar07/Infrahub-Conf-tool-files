@@ -1,0 +1,221 @@
+{
+    "name": "Xetra 10G ETI (CV2)",
+    "description": "Xetra 10G ETI (CV2)",
+    "access_points": [
+      {
+        "name": "FRA021",
+        "os_type": "IOS",
+        "router_type": "ASR1001",
+        "side": "A"
+      },
+      {
+        "name": "FRA031",
+        "os_type": "IOS",
+        "router_type": "ASR1001",
+        "side": "A"
+      },
+      {
+        "name": "FRA051",
+        "os_type": "NX-OS",
+        "router_type": "ASR1001",
+        "side": "A"
+      },
+      {
+        "name": "FRA091",
+        "os_type": "IOS-XR",
+        "router_type": "ASR1001",
+        "side": "A"
+      },
+      {
+        "name": "FRA022",
+        "os_type": "IOS",
+        "router_type": "NEXUS9000",
+        "side": "B"
+      },
+      {
+        "name": "FRA032",
+        "os_type": "ARISTA EOS",
+        "router_type": "NEXUS9000",
+        "side": "B"
+      },
+      {
+        "name": "FRA052",
+        "os_type": "NX-OS",
+        "router_type": "NEXUS9000",
+        "side": "B"
+      },
+      {
+        "name": "FRA092",
+        "os_type": "IOS-XR",
+        "router_type": "NEXUS9000",
+        "side": "B"
+      }
+    ],
+    "bandwidths": [
+      {
+        "human_readable_name": "10Gbit",
+        "value": 100000000
+      },
+      {
+        "human_readable_name": "10Gbit Ultra",
+        "value": 2000000
+      }
+    ],
+    "entitlements": [
+      "EMDI",
+      "EOBI Futures",
+      "XETR",
+      "XFRA",
+      "XBUL",
+      "XMAL",
+      "XVIE",
+      "XPRA",
+      "XBUD",
+      "XLJU",
+      "XZAG",
+      "DBDX"
+    ],
+    "environment_variables": [
+      {
+        "name": "xetra_t7_EMDI_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.80/29",
+        "entitlement": "EMDI",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_EOBI_Futures_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.81/29",
+        "entitlement": "EOBI Futures",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XETR_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.82/29",
+        "entitlement": "XETR",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XFRA_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.83/29",
+        "entitlement": "XFRA",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XBUL_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.84/29",
+        "entitlement": "XBUL",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XMAL_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.85/29",
+        "entitlement": "XMAL",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XVIE_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.86/29",
+        "entitlement": "XVIE",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XPRA_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.87/29",
+        "entitlement": "XPRA",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XBUD_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.88/29",
+        "entitlement": "XBUD",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XLJU_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.89/29",
+        "entitlement": "XLJU",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_XZAG_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.90/29",
+        "entitlement": "XZAG",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_DBDX_A",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.91/29",
+        "entitlement": "DBDX",
+        "side": "A"
+      },
+      {
+        "name": "xetra_t7_EMDI_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.92/29",
+        "entitlement": "EMDI",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_EOBI_Futures_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.93/29",
+        "entitlement": "EOBI Futures",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XETR_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.94/29",
+        "entitlement": "XETR",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XFRA_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.95/29",
+        "entitlement": "XFRA",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XBUL_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.96/29",
+        "entitlement": "XBUL",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XMAL_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.97/29",
+        "entitlement": "XMAL",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XVIE_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.98/29",
+        "entitlement": "XVIE",
+        "side": "B"
+      },
+      {
+        "name": "xetra_t7_XPRA_B",
+        "variable_type": "MULTICAST GROUP",
+        "value": "224.0.164.99/29",
+        "entitlement": "XPRA",
+        "side": "B"
+      }
+    ]
+  }
+  

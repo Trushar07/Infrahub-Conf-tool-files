@@ -1,0 +1,219 @@
+# yaml-language-server: $schema=https://schema.infrahub.app/infrahub/schema/latest.json
+version: "2.0"
+
+nodes:
+  - name: Application
+    namespace: Net
+    description: "Applications offered by Deutsche Börse"
+    label: "Applications"
+    icon: mdi:server-network-outline
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+      - name: description
+        kind: TextArea
+    relationships:
+      - name: bandwidths
+        peer: NetBandwidth
+        cardinality: many
+        kind: Generic
+      - name: entitlements
+        peer: NetEntitlement
+        cardinality: many
+        kind: Generic
+      - name: access_points
+        peer: NetAccessPoint
+        cardinality: many
+        kind: Generic
+      - name: environment_variables
+        peer: NetEnvironmentVariable
+        cardinality: many
+        kind: Generic
+
+  - name: Bandwidth
+    namespace: Net
+    label: "Bandwidths"
+    icon: mdi:speedometer
+    include_in_menu: true
+    human_friendly_id:
+      - human_readable_name__value
+    order_by:
+      - human_readable_name__value
+    display_labels:
+      - human_readable_name__value
+    attributes:
+      - name: human_readable_name
+        kind: Text
+        unique: true
+      - name: value
+        kind: Number
+    relationships:
+      - name: applications
+        peer: NetApplication
+        cardinality: many
+        kind: Generic
+        identifier: bandwidths
+
+  - name: Entitlement
+    namespace: Net
+    description: "Entitlement"
+    label: "Entitlements"
+    icon: mdi:package-variant-closed
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+    relationships:
+      - name: applications
+        peer: NetApplication
+        cardinality: many
+        kind: Generic
+        identifier: entitlements
+
+  - name: AccessPoint
+    namespace: Net
+    description: AccessPoint
+    label: "Access Points"
+    icon: mdi:server
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+    relationships:
+      - name: os_type
+        peer: NetAccessPointOSType
+        cardinality: one
+        kind: Attribute
+      - name: side
+        peer: NetSide
+        cardinality: one
+        kind: Attribute
+      - name: applications
+        peer: NetApplication
+        cardinality: many
+        kind: Generic
+        identifier: access_points
+      - name: router_type
+        peer: NetAccessPointRouterType
+        cardinality: one
+        kind: Attribute
+
+  - name: EnvironmentVariable
+    namespace: Net
+    description: "Applicated specific variables"
+    label: "Environment Variables"
+    icon: mdi:variable
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+      - name: value
+        kind: Text
+    relationships:
+      - name: variable_type
+        peer: NetEnvironmentVariableType
+        cardinality: one
+        kind: Attribute
+      - name: entitlement
+        peer: NetEntitlement
+        cardinality: one
+        kind: Attribute
+      - name: application
+        peer: NetApplication
+        cardinality: one
+        kind: Attribute
+      - name: side
+        peer: NetSide
+        cardinality: one
+        kind: Attribute
+
+  - name: AccessPointOSType
+    namespace: Net
+    label: "Access Point OS Type"
+    icon: mdi:computer-classic
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: Side
+    namespace: Net
+    icon: mdi:ab-testing
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: EnvironmentVariableType
+    namespace: Net
+    icon: mdi:format-list-bulleted-type
+    label: "Environment Variable Type"
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: AccessPointRouterType
+    namespace: Net
+    icon: mdi:router-wireless
+    label: "Access Point Router Type"
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true

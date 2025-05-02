@@ -1,0 +1,178 @@
+# yaml-language-server: $schema=https://schema.infrahub.app/infrahub/schema/latest.json
+version: "1.1"
+
+nodes:
+  - name: Application
+    namespace: Net
+    description: "Applications offered by Deutsche Börse"
+    label: "Applications"
+    icon: mdi:server-network-outline
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+      - name: description
+        kind: TextArea
+
+  - name: AccessPointOSType
+    namespace: Net
+    label: "Access Point OS Type"
+    icon: mdi:computer-classic
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: EnvironmentVariableType
+    namespace: Net
+    icon: mdi:format-list-bulleted-type
+    label: "Environment Variable Type"
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    include_in_menu: true
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: Side
+    namespace: Net
+    icon: mdi:ab-testing
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+
+  - name: Bandwidth
+    namespace: Net
+    label: "Bandwidths"
+    icon: mdi:speedometer
+    include_in_menu: true
+    human_friendly_id:
+      - human_readable_name__value
+    order_by:
+      - human_readable_name__value
+    display_labels:
+      - human_readable_name__value
+    attributes:
+      - name: human_readable_name
+        kind: Text
+        unique: true
+      - name: value
+        kind: Number
+    relationships:
+      - name: application
+        cardinality: many
+        kind: Attribute
+        peer: NetApplication
+
+  - name: Entitlement
+    namespace: Net
+    description: "Entitlement"
+    label: "Entitlements"
+    icon: mdi:package-variant-closed
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+    relationships:
+      - name: application
+        cardinality: many
+        kind: Attribute
+        peer: NetApplication
+
+  - name: AccessPoint
+    namespace: Net
+    description: AccessPoint
+    label: "Access Points"
+    icon: mdi:server
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+        unique: true
+    relationships:
+      - name: os_type
+        kind: Attribute
+        cardinality: one
+        peer: NetAccessPointOSType
+      - name: side
+        kind: Attribute
+        cardinality: one
+        peer: NetSide
+      - name: application
+        kind: Attribute
+        cardinality: many
+        peer: NetApplication
+
+  - name: EnvironmentVariables
+    namespace: Net
+    description: "Applicated specific variables"
+    label: "Environment Variables"
+    icon: mdi:variable
+    include_in_menu: true
+    human_friendly_id:
+      - name__value
+    order_by:
+      - name__value
+    display_labels:
+      - name__value
+    attributes:
+      - name: name
+        kind: Text
+      - name: value
+        kind: Text
+    relationships:
+      - name: entitlement
+        kind: Attribute
+        cardinality: one
+        peer: NetEntitlement
+      - name: side
+        kind: Attribute
+        cardinality: one
+        peer: NetSide
+      - name: application
+        kind: Attribute
+        cardinality: one
+        peer: NetApplication
+      - name: type
+        kind: Attribute
+        cardinality: one
+        peer: NetEnvironmentVariableType

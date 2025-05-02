@@ -1,0 +1,109 @@
+query GetConfigData(
+  $appName: String!
+  $accessPoint: String!
+  $bandwidth: String!
+  $entitlements: [String!]
+  $side: String!
+) {
+  NetApplication(name__value: $appName) {
+    edges {
+      node {
+        id
+        name {
+          value
+        }
+        description {
+          value
+        }
+        access_points(name__value: $accessPoint) {
+          edges {
+            node {
+              name {
+                value
+              }
+              os_type {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+              router_type {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+              side {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+        bandwidths(human_readable_name__value: $bandwidth) {
+          edges {
+            node {
+              human_readable_name {
+                value
+              }
+              value {
+                value
+              }
+            }
+          }
+        }
+        entitlements(name__values: $entitlements) {
+          edges {
+            node {
+              name {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  NetEnvironmentVariable(
+    application__name__value: $appName
+    entitlement__name__values: $entitlements
+    side__name__value: $side
+  ) {
+    edges {
+      node {
+        name {
+          value
+        }
+        value {
+          value
+        }
+        side {
+          node {
+            name {
+              value
+            }
+          }
+        }
+        entitlement {
+          node {
+            name {
+              value
+            }
+          }
+        }
+        variable_type {
+          node {
+            name {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+}

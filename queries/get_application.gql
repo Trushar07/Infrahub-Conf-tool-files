@@ -1,0 +1,66 @@
+query GetApplicationDetails($name: String!) {
+  NetApplication(name__value: $name) {
+    edges {
+      node {
+        id
+        name {
+          value
+        }
+        description {
+          value
+        }
+        access_points {
+          edges {
+            node {
+              name {
+                value
+              }
+              os_type {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+              router_type {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+              side {
+                node {
+                  name {
+                    value
+                  }
+                }
+              }
+            }
+          }
+        }
+        bandwidths {
+          edges {
+            node {
+              human_readable_name {
+                value
+              }
+              value {
+                value
+              }
+            }
+          }
+        }
+        entitlements {
+          edges {
+            node {
+              name {
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
