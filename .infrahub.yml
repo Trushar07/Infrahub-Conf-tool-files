@@ -2,13 +2,13 @@ jinja2_transforms:
   - name: generate_access_point_config
     description: "Jinja transformer to generate access point configurations"
     query: "get_conf_data"
-    template_path: "./templates/Xetra 10G ETI (CV2)/access_point.j2"
+    template_path: "/templates/Xetra 10G ETI (CV2)/access_point.j2"
 
 python_transforms:
   - name: generate_device_config
     class_name: DeviceConfigTransform
-    file_path: "./transforms/generate_config.py"
+    file_path: "/transforms/generate_config.py"
 
 queries:
   - name: get_conf_data
-    file_path: "./queries/get_conf_data.gql"
+    file_path: "/queries/get_conf_data.gql"
