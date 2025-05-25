@@ -15,15 +15,12 @@ configure terminal
 no route-map {{ interface }}_boundary
 !
 interface {{ interface }}
-no lldp transmit
-no lldp receive
-udld disable
+# ... QoS commands
 ip address {{ member_lan }}
 no ip redirects
-ip pim sparse-mode
 ip igmp access-group {{ interface }}_boundary
 ip access-group allow_mc_colo in
-ip pim passive
+# ... Other commands
 no shutdown
 !
 !
